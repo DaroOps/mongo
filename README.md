@@ -27,7 +27,7 @@ En la consola de Compass, cree el usuario root:
 use admin
 
 db.createUser({
-   user: "adminUser",
+   user: "root",
    pwd: passwordPrompt(),
    roles: [ { role: "root", db: "admin" } ]
 })
@@ -73,10 +73,10 @@ db.createRole(
 
 db.createUser(
   {
-    user: "nombre_de_usuario",
-    pwd: "contraseña_usuario",
+    user: "camper",
+    pwd: "campus2023",
     roles: [
-      { role: "nombre_del_rol_personalizado", db: "nombre_base_de_datos" }
+      { role: "camper", db: "admin" }
     ]
   }
 )
