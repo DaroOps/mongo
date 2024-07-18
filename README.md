@@ -48,23 +48,23 @@ En la consola de Compass, cree el rol y usuario administrador para una única ba
 ```javascript
 db.createRole(
   {
-    role: "nombre_del_rol_personalizado",
+    role: "camper",
     privileges: [
       {
-        resource: { db: "nombre_base_de_datos", collection: "" },
+        resource: { db: "", collection: "" },
         actions: ["find", "insert", "update", "remove"]
       },
       {
-        resource: { db: "nombre_base_de_datos", collection: "system.users" },
+        resource: { db: "", collection: "system.users" },
         actions: ["find", "insert", "update", "remove"]
       },
       {
-        resource: { db: "nombre_base_de_datos", collection: "system.roles" },
+        resource: { db: "", collection: "system.roles" },
         actions: ["find", "insert", "update", "remove"]
       },
       {
-        resource: { db: "nombre_base_de_datos", collection: "" },
-        actions: ["createRole", "dropRole", "grantRole", "revokeRole", "createUser", "dropUser"]
+        resource: { db: "", collection: "" },
+        actions: ["createRole", "dropRole", "grantRole", "revokeRole", "createUser", "dropUser", "createDatabase", "find", "createCollection", "dbStats", "collStats", "listCollections" ]
       }
     ],
     roles: []
@@ -83,6 +83,11 @@ db.createUser(
 ```
 
 Nota: Asegúrese de tener creada la base de datos a la cual va a asignar el usuario. Tenga en cuenta que las colecciones creadas bajo el usuario root serán accesibles únicamente por el usuario root.
+
+```
+db.grantRolesToUser("camper", ["camper"])
+
+```
 
 Paso 7:
 Realice una nueva conexión con el siguiente string:
